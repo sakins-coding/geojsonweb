@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Plein Where - Leaflet</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="js/leaflet/leaflet.css" crossorigin=""/>
+    <script src="js/leaflet/leaflet.js" crossorigin=""></script>
+    <script src="js/jquery-3.7.1.min.js" crossorigin=""></script>
+    <script type="text/javascript" src="./js/artworks.js"></script>
+	<script type="text/javascript" src="./js/geojsonmap.js"></script>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 5;
+		}
+		.leaflet-container {
+			height: 800px;
+			width: 1000px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+		.layout {
+  			width: 1366px;
+  			height: 768px;
+
+  			font-family: Arial, Helvetica, sans-serif;
+  			font-weight: bold;
+
+  			display: grid;
+  			grid:
+    			"sidebar body" 1fr / 1fr 5fr;
+  			gap: 5px;
+		}
+
+		.sidebar { grid-area: sidebar; background-color: #FFFFFF }
+		.body { grid-area: body; }
+		.titlebar { background-color: #FFFFFF }
+  </style>
+</head>
+
+<body>
+	<section class="layout">
+		<div class="sidebar">
+			<h1>Plein Where Atlas</h1>
+			<p>This map displays the location where artworks were either completed or inspired by</p>
+			<p>You can click on the pin location to see a pop up with the name of the artwork and a preview image.  Click on the link or image in the pop up for more details about that artwork</p>
+		</div>
+		<div class="body">
+		  <div class="titlebar">
+			<img src="images/PleinWhereLogo.png" alt="Plein Where Logo" height=100px/>
+		  </div>
+		  <div class="leaflet-container" id='map'></div>
+		</div>
+
+	<script>
+    	getGeoJSON('./data/test.json');
+    	
+		atlas();
+	</script>
+</body>
+</html>

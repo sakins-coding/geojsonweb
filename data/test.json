@@ -1,0 +1,64 @@
+{"type": "FeatureCollection",
+"features": [
+{
+   "type":"Feature",
+   "geometry":{
+      "type":"Point",
+      "coordinates":[
+         -111.695,
+         36.728
+      ]
+   },
+   "properties":{
+      "id": 1,
+      "name":"Salt Water Wash, Grand Canyon, AZ",
+      "image":"images/cropped_organs_watercolor.jpg",
+      "width":36,
+      "height":60,
+      "units":"inches",
+      "media":"acrylic",
+      "origin":"studio"
+   }
+},
+{
+   "type":"Feature",
+   "geometry":{
+      "type":"Point",
+      "coordinates":[
+         -106.616,
+         32.299
+      ]
+   },
+   "properties":{
+      "id": 2,
+      "name":"Organ Mountains, Las Cruces, NM",
+      "image":"images/cropped_organs_watercolor.jpg",
+      "width":16,
+      "height":10,
+      "units":"inches",
+      "media":"watercolor",
+      "origin":"studio"
+   }
+},
+{
+   "type":"Feature",
+   "geometry":{
+      "type":"Point",
+      "coordinates":[
+         -111.762,
+         34.797
+      ]
+   },
+   "properties":{
+      "id": 3,
+      "name":"Red Rocks, Sedona, AZ",
+      "image":"images/cropped_organs_watercolor.jpg",
+      "width":14,
+      "height":11,
+      "units":"inches",
+      "media":"watercolor",
+      "origin":"plein air"
+   }
+}
+]
+}

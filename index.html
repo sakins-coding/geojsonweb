@@ -7,18 +7,17 @@
 	
 	<title>Plein Where - Leaflet</title>
 	
-	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
 
     <link rel="stylesheet" href="js/leaflet/leaflet.css" crossorigin=""/>
     <script src="js/leaflet/leaflet.js" crossorigin=""></script>
     <script src="js/jquery-3.7.1.min.js" crossorigin=""></script>
-    <script type="text/javascript" src="./js/artworks.js"></script>
 	<script type="text/javascript" src="./js/geojsonmap.js"></script>
 
 	<style>
 		html, body {
 			height: 100%;
-			margin: 5;
+			margin: 0;
 		}
 		.leaflet-container {
 			height: 800px;
@@ -35,11 +34,11 @@
 
   			display: grid;
   			grid:
-    			"sidebar body" 1fr / 1fr 5fr;
-  			gap: 5px;
+    			"sidebar body" 1fr / 1fr 4fr;
+  			gap: 0px;
 		}
 
-		.sidebar { grid-area: sidebar; background-color: #0DA47A; color:#FFFFFF }
+		.sidebar { grid-area: sidebar; background-color: #0DA47A; color:#FFFFFF; padding:10px }
 		.body { grid-area: body; }
 		.titlebar { background-color: #0DA47A }
   </style>

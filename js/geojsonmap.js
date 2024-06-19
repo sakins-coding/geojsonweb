@@ -24,7 +24,7 @@ function atlas (mapdiv="map", id_field="id", detailurl="detail.html") {
 	}).addTo(map);
 
 	function onEachFeature(feature, layer) {
-		let popupContent = `<p>This artwork is titled <br/><a href="${detailurl}?id=${feature.properties.id}">${feature.properties.name}</p><img src="${feature.properties.image}" width=300px></a>`;
+		let popupContent = `<a href="${detailurl}?id=${feature.properties.id}">${feature.properties.name}<img src="${feature.properties.image}" width=300px></a>`;
 
 		if (feature.properties && feature.properties.popupContent) {
 			popupContent += feature.properties.popupContent;

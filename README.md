@@ -66,4 +66,4 @@ The repository includes HTML and CSS files to demonstrate the `atlas` and `detai
 ## GitHub Pages Demostration
 The demo pages can be interacted with live on the GitHub pages site:
 
-(GeoJSON Web GitHub Pages)[https://sakins-coding.github.io/geojsonweb/index.html]
+[GeoJSON Web GitHub Pages](https://sakins-coding.github.io/geojsonweb/index.html)

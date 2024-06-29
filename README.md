@@ -5,23 +5,23 @@ GeoJSON Web is a Javascript library of helper functions for displaying the featu
 ### getGeoJSON
 `getGeoJSON (url)`
 
-This is the method to read the GeoJSON data.  The `url` can be a relative path to the GeoJSON file or a url.
+This is the method to read the GeoJSON data.  The `url` can be a relative path to the GeoJSON file or a url.  The geoGeoJSON method needs to be called to load the data before calling the `atlas` or `detail` functions.
 
 ### atlas
 `atlas (mapdiv="map", id_field="id", detailurl="detail.html")`
 
 The `atlas` function displays all of the features from the GeoJSON file on a Leaflet web map.  The parameters for the function are:
-- `mapdiv` - the HTML "id" of the `div` tag where the Leaflet map should be rendered
-- `id_field` - the property from the GeoJSON file that provides a unique index of the features.  This field will be used to create the links to display each feature in a detailed view (see next function)
-- `detailurl` - this is a relative url or HTML file that will display an individual feature.  This url combined with the `id` field will be used to create links in the pop-up displays of the features in the atlas map
+- `mapdiv` - the HTML "id" of the `div` tag where the Leaflet map should be rendered, default value is "map"
+- `id_field` - the property from the GeoJSON file that provides a unique index of the features.  This field will be used to create the links to display each feature in a detailed view (see next function), default value is "id"
+- `detailurl` - this is a relative url or HTML file that will display an individual feature.  This url combined with the `id` field will be used to create links in the pop-up displays of the features in the atlas map, default value is "detail.html"
 
 ### detail
 `detail (mapdiv="map", id_field="id", imagediv="image")`
 
 The `detail` function is used to display a single feature from the set of features in the GeoJSON file.  The `image` property of the feature is displayed in a div, there is an inset map showing the location of the image, and the rest of the properties for the feature will dynamically populate the HTML page by matching the key of the feature with HTML elements that have an "id" matching that key.
-- `mapdiv` - the HTML "id" of the `div` tag where the inset Leaflet map should be rendered
-- `id_field` - the property of the GeoJSON file to uniquely identify which feature to display
-- `imagediv` - the HTML "id" of the page `div` to display the image within.  The `image` property needs to be a relative path or full URL to the image.
+- `mapdiv` - the HTML "id" of the `div` tag where the inset Leaflet map should be rendered, default value is "map"
+- `id_field` - the property of the GeoJSON file to uniquely identify which feature to display, default value is "id"
+- `imagediv` - the HTML "id" of the page `div` to display the image within.  The `image` property needs to be a relative path or full URL to the image, default value is "image"
 
 ## Format of GeoJSON File
 The GeoJSON file is a standard feature collection.  The following is an example file with a single feature:
@@ -67,3 +67,7 @@ The repository includes HTML and CSS files to demonstrate the `atlas` and `detai
 The demo pages can be interacted with live on the GitHub pages site:
 
 [GeoJSON Web GitHub Pages](https://sakins-coding.github.io/geojsonweb/index.html)
+
+Or in the Azure Web Server which is updated through GitHub actions:
+
+[Azure GeoJSON Web Demo](https://red-cliff-0c4e0cc1e.5.azurestaticapps.net)

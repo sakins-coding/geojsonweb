@@ -32,8 +32,8 @@
     }
   },
   "entities": {
-    "geojsonweb": {
-      "source": "geojsonweb",
+    "Person": {
+      "source": "people",
       "permissions": [
         {
           "actions": ["*"],

@@ -44,6 +44,13 @@
             geojsonweb {
                 items {
                     id
+                    name
+                    image
+                    width
+                    height
+                    units
+                    media
+                    origin
                 }
             }
         }
@@ -51,15 +58,12 @@
 
     const endpoint = "/data-api/graphql";
     try {
-        console.log("Sending GraphQL query:", JSON.stringify({ query }));
         const response = await fetch(endpoint, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ query })
         });
 
-        console.log("Response status:", response.status);
-        
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -77,7 +81,7 @@
         console.error("Error fetching or parsing data:", error);
     }
 }
-    	
+	
         atlas();
     </script>
 

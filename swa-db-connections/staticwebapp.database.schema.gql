@@ -1,9 +1,0 @@
-type Person @model {
-  id: ID
-  Name: String
-  _rid: String
-  _self: String
-  _etag: String
-	_attachments: String
-  _ts: String
-}

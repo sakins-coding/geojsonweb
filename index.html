@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="js/leaflet/leaflet.css" crossorigin=""/>
     <script src="js/leaflet/leaflet.js" crossorigin=""></script>
     <script src="js/jquery-3.7.1.min.js" crossorigin=""></script>
-	<script type="text/javascript" src="./js/geojsonmap.js"></script>
+    <script type="text/javascript" src="./js/geojsonmap.js"></script>
 
 </head>
 <body>
@@ -25,7 +25,6 @@
 			<p>This map displays the location where artworks were either completed or inspired by</p>
 			<p>You can click on the pin location to see a pop up with the name of the artwork and a preview image.</p>
             <p>Click on the link or image in the pop up for more details about that artwork</p>
-	    <button id="list" onclick="list()">List</button>
         </div>
         </div>
         <div class="contentwrap">
@@ -37,35 +36,7 @@
 
     <script>
     	getGeoJSON('./data/test.json');
-
-	async function list() {
-    const query = `
-        {
-            people {
-                id
-		Name
-  		_rid
-    		_self
-      		_etag
-		_attachments
-  		_ts
-            }
-        }
-    `;
-
-    const endpoint = "/data-api/graphql";
-		
-    const response = await fetch(endpoint, {
-	method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query })
-    });
-    
-    const result = await response.json();
-    console.log("GraphQL response:", result);
-
-        
-}
+	    
         atlas();
     </script>
 

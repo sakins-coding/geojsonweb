@@ -31,5 +31,14 @@
       "mode": "production"
     }
   },
-  "entities": {}
+  "entities": {
+    "Items": {
+      "source": "geojsonweb",
+      "permissions": [
+        {
+          "actions": ["*"],
+          "role": "anonymous"
+        }
+      ]
+    }
 }

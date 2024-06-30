@@ -42,16 +42,30 @@
     const query = `
         {
             geojsonweb {
-                items {
-                    id
-                    name
-                    image
-                    width
-                    height
-                    units
-                    media
-                    origin
+                id
+                type
+                features {
+                    type
+                    geometry {
+                        type
+                        coordinates
+                    }
+                    properties {
+                        id
+                        name
+                        image
+                        width
+                        height
+                        units
+                        media
+                        origin
+                    }
                 }
+                _rid
+                _self
+                _etag
+                _attachments
+                _ts
             }
         }
     `;
@@ -71,9 +85,15 @@
         const result = await response.json();
         console.log("GraphQL response:", result);
 
+        // Assuming features array is directly accessible under geojsonweb
+        if (result.data && result.data.geojsonweb && result.data.geojsonweb.features) {
+            result.data.geojsonweb.features.forEach(feature => {
+                console.log("Feature ID:", feature.properties.id);
+                console.log("Feature Name:", feature.properties.name);
+                console.log("Feature Coordinates:", feature.geometry.coordinates);
+                // Log or process other properties as needed
 
-        if (result.data && result.data.geojsonweb && result.data.geojsonweb.items) {
-            console.table(result.data.geojsonweb.items);
+            });
         } else {
             throw new Error("Invalid response structure from server");
         }

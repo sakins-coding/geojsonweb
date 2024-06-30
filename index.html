@@ -38,18 +38,18 @@
     <script>
     	getGeoJSON('./data/test.json');
 
-	async function list() {
-	    const query = `
-      	    {
-                geojsonweb {
-          	    items {
-            	        id
-          	    }
-                }
-            }`;
+		async function list() {
+			const query = `
+				{
+					geojsonweb {
+						items {
+							id
+						}
+					}
+				}`;
       
-  	    const endpoint = "/data-api/graphql";
-  	    const response = await fetch(endpoint, {
+			const endpoint = "/data-api/graphql";
+			const response = await fetch(endpoint, {
       	        method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ query: query })

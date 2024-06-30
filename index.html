@@ -41,63 +41,24 @@
 	async function list() {
     const query = `
         {
-            geojsonweb {
+            people {
                 id
-                type
-                features {
-                    type
-                    geometry {
-                        type
-                        coordinates
-                    }
-                    properties {
-                        id
-                        name
-                        image
-                        width
-                        height
-                        units
-                        media
-                        origin
-                    }
-                }
-                _rid
-                _self
-                _etag
-                _attachments
-                _ts
             }
         }
     `;
 
     const endpoint = "/data-api/graphql";
-    try {
-        const response = await fetch(endpoint, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ query })
-        });
+		
+    const response = await fetch(endpoint, {
+	method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query })
+    });
+    
+    const result = await response.json();
+    console.log("GraphQL response:", result);
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const result = await response.json();
-        console.log("GraphQL response:", result);
-
-        if (result.data && result.data.geojsonweb && result.data.geojsonweb.features) {
-            result.data.geojsonweb.features.forEach(feature => {
-                console.log("Feature ID:", feature.properties.id);
-                console.log("Feature Name:", feature.properties.name);
-                console.log("Feature Coordinates:", feature.geometry.coordinates);
-                // Log or process other properties as needed
-            });
-        } else {
-            throw new Error("Invalid response structure from server");
-        }
-    } catch (error) {
-        console.error("Error fetching or parsing data:", error);
-    }
+        
 }
         atlas();
     </script>

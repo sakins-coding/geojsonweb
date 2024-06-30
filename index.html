@@ -55,8 +55,10 @@
                 body: JSON.stringify({ query: query })
             });
             const result = await response.json();
-            console.table(result.data.geojsonweb.items);
-        }
+	    const items = result.data.geojsonweb.items;
+	    items.forEach(item => {
+                console.table(item.id);
+        });
     	
         atlas();
     </script>

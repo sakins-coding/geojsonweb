@@ -51,18 +51,22 @@
 
     const endpoint = "/data-api/graphql";
     try {
+        console.log("Sending GraphQL query:", JSON.stringify({ query }));
         const response = await fetch(endpoint, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ query })
         });
 
+        console.log("Response status:", response.status);
+        
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
         const result = await response.json();
-        console.log("GraphQL response:", result); // Log entire response for debugging
+        console.log("GraphQL response:", result);
+
 
         if (result.data && result.data.geojsonweb && result.data.geojsonweb.items) {
             console.table(result.data.geojsonweb.items);
@@ -72,7 +76,7 @@
     } catch (error) {
         console.error("Error fetching or parsing data:", error);
     }
-}	
+}
     	
         atlas();
     </script>

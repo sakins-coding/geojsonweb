@@ -1,3 +1,4 @@
-type geojsonweb @model {
+type Person @model {
   id: ID
+  Name: String
 }

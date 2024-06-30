@@ -32,7 +32,7 @@
     }
   },
   "entities": {
-    "Items": {
+    "geojsonweb": {
       "source": "geojsonweb",
       "permissions": [
         {

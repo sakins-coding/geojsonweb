@@ -85,14 +85,12 @@
         const result = await response.json();
         console.log("GraphQL response:", result);
 
-        // Assuming features array is directly accessible under geojsonweb
         if (result.data && result.data.geojsonweb && result.data.geojsonweb.features) {
             result.data.geojsonweb.features.forEach(feature => {
                 console.log("Feature ID:", feature.properties.id);
                 console.log("Feature Name:", feature.properties.name);
                 console.log("Feature Coordinates:", feature.geometry.coordinates);
                 // Log or process other properties as needed
-
             });
         } else {
             throw new Error("Invalid response structure from server");
@@ -101,7 +99,6 @@
         console.error("Error fetching or parsing data:", error);
     }
 }
-	
         atlas();
     </script>
 

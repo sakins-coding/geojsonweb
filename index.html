@@ -48,21 +48,29 @@
         }
     }`;
 
-    const endpoint = "https://cors-anywhere.herokuapp.com/https://geojsonweb.documents.azure.com/geojsonweb/graphql";
-    const apiKey = "efufWjJmPRAfGE7kJemcUYc4K3C7U2jMPIy24INxPGE3Lk3uY0ABlPdEOUFAGAfOqTiPn5B6U88pACDbFEGfhg=="; // Replace with your actual Cosmos DB account key
+    const endpoint = "https://geojsonweb.documents.azure.com/geojsonweb/graphql";
+    const apiKey = "efufWjJmPRAfGE7kJemcUYc4K3C7U2jMPIy24INxPGE3Lk3uY0ABlPdEOUFAGAfOqTiPn5B6U88pACDbFEGfhg==";
     
-    const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { 
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${apiKey}`
-        },
-        body: JSON.stringify({ query: gpl })
-    });
+    try {
+        const response = await fetch(endpoint, {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${apiKey}`,
+                "Origin": "https://red-cliff-0c4e0cc1e.5.azurestaticapps.net/"
+            },
+            body: JSON.stringify({ query: gpl })
+        });
 
-    const result = await response.json();
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
 
-    console.table(result.data.geojsonweb.items);
+        const result = await response.json();
+        console.table(result.data.geojsonweb.items);
+    } catch (error) {
+        console.error('Fetch Error:', error);
+    }
 }
 	    
         atlas();

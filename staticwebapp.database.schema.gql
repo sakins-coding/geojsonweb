@@ -1,3 +1,0 @@
-type geojsonweb @model {
-  id: ID
-}

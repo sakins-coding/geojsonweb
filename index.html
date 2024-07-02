@@ -25,6 +25,7 @@
 			<p>This map displays the location where artworks were either completed or inspired by</p>
 			<p>You can click on the pin location to see a pop up with the name of the artwork and a preview image.</p>
             <p>Click on the link or image in the pop up for more details about that artwork</p>
+	    <button id="list" onclick="list()">List</button>
         </div>
         </div>
         <div class="contentwrap">
@@ -36,6 +37,27 @@
 
     <script>
     	getGeoJSON('./data/test.json');
+
+	async function list() {
+	const gpl = `
+    {
+		geojsonweb {
+			items {
+				id
+			}
+		}
+	}`;
+
+    const endpoint = "/data-api/graphql";
+    const response = await fetch(endpoint, {
+		method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: gpl })
+    });
+
+    const result = await response.json();
+    console.table(result.data.geojsonweb.items);
+}
 	    
         atlas();
     </script>

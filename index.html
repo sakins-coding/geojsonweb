@@ -39,23 +39,29 @@
     	getGeoJSON('./data/test.json');
 
 	async function list() {
-	const gpl = `
+    const gpl = `
     {
-		geojsonweb {
-			items {
-				id
-			}
-		}
-	}`;
+        geojsonweb {
+            items {
+                id
+            }
+        }
+    }`;
 
-    const endpoint = "https://geojsonweb.documents.azure.com:443/geojsonweb/graphql";
+    const endpoint = "https://geojsonweb.documents.azure.com/geojsonweb/graphql";
+    const apiKey = "efufWjJmPRAfGE7kJemcUYc4K3C7U2jMPIy24INxPGE3Lk3uY0ABlPdEOUFAGAfOqTiPn5B6U88pACDbFEGfhg=="; // Replace with your actual Cosmos DB account key
+    
     const response = await fetch(endpoint, {
-		method: "POST",
-        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        headers: { 
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${apiKey}`
+        },
         body: JSON.stringify({ query: gpl })
     });
 
     const result = await response.json();
+
     console.table(result.data.geojsonweb.items);
 }
 	    

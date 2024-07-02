@@ -22,7 +22,7 @@
     },
     "host": {
       "cors": {
-        "origins": ["*"],
+        "origins": ["https://red-cliff-0c4e0cc1e.5.azurestaticapps.net"],
         "allow-credentials": false
       },
       "authentication": {

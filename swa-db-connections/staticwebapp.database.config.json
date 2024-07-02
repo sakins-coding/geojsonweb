@@ -1,0 +1,35 @@
+{
+  "$schema": "https://github.com/Azure/data-api-builder/releases/download/v0.9.7/dab.draft.schema.json",
+  "data-source": {
+    "database-type": "cosmosdb_nosql",
+    "connection-string": "AccountEndpoint=https://geojsonweb.documents.azure.com:443/;AccountKey=efufWjJmPRAfGE7kJemcUYc4K3C7U2jMPIy24INxPGE3Lk3uY0ABlPdEOUFAGAfOqTiPn5B6U88pACDbFEGfhg==",
+    "options": {
+      "database": "geojsonweb",
+      "container": null,
+      "schema": "staticwebapp.database.schema.gql"
+    }
+  },
+  "runtime": {
+    "rest": {
+      "enabled": false,
+      "path": "/api",
+      "request-body-strict": true
+    },
+    "graphql": {
+      "enabled": true,
+      "path": "/graphql",
+      "allow-introspection": true
+    },
+    "host": {
+      "cors": {
+        "origins": [],
+        "allow-credentials": false
+      },
+      "authentication": {
+        "provider": "StaticWebApps"
+      },
+      "mode": "production"
+    }
+  },
+  "entities": {}
+}

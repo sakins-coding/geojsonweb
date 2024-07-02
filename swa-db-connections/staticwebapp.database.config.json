@@ -22,7 +22,7 @@
     },
     "host": {
       "cors": {
-        "origins": [],
+        "origins": ["*"],
         "allow-credentials": false
       },
       "authentication": {
@@ -31,5 +31,15 @@
       "mode": "production"
     }
   },
-  "entities": {}
+  "entities": {
+    "geojsonweb": {
+      "source": "geojsonweb",
+      "permissions": [
+        {
+          "actions": ["*"],
+          "role": "anonymous"
+        }
+      ]
+    }
+  }
 }
